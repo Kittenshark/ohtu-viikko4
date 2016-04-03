@@ -2,8 +2,8 @@ package ohtu.verkkokauppa;
 
 public class Viitegeneraattori {
 
-    private static Viitegeneraattori instanssi;
-
+    //private static Viitegeneraattori instanssi;
+/*
     public static Viitegeneraattori getInstance() {
         if (instanssi == null) {
             instanssi = new Viitegeneraattori();
@@ -11,10 +11,10 @@ public class Viitegeneraattori {
 
         return instanssi;
     }
-    
+   */
     private int seuraava;
     
-    private Viitegeneraattori(){
+    public Viitegeneraattori(){
         seuraava = 1;    
     }
     
