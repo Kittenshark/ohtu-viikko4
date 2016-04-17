@@ -6,7 +6,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 description 'User can create a new account with valid and not already in use username'
 
 scenario "user can create account with valid username/password", {
-    given 'login selected', {
+    given 'register new user selected', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8090");
         element = driver.findElement(By.linkText("register new user"));       
@@ -18,14 +18,14 @@ scenario "user can create account with valid username/password", {
         element.sendKeys("hauki");
         element = driver.findElement(By.name("password"));
         element.sendKeys("onkala1kala");
-        element = driver.findElement(By.name("passwordConfirmationssword"));
+        element = driver.findElement(By.name("passwordConfirmation"));
         element.sendKeys("onkala1kala");
-        element = driver.findElement(By.name("login"));
+        element = driver.findElement(By.name("add"));
         element.submit();
     }
  
     then 'user will be logged in to system', {
-        driver.getPageSource().contains("Welcome to Ohtu Application!").shouldBe true
+        driver.getPageSource().contains("Welcome to Ohtu App!").shouldBe true
     }
 
 }
@@ -65,9 +65,9 @@ scenario "user can't create an account with already taken username", {
         element.sendKeys("pekka");
         element = driver.findElement(By.name("password"));
         element.sendKeys("onkala1kala");
-        element = driver.findElement(By.name("passwordConfirmationssword"));
+        element = driver.findElement(By.name("passwordConfirmation"));
         element.sendKeys("onkala1kala");
-        element = driver.findElement(By.name("login"));
+        element = driver.findElement(By.name("add"));
         element.submit();
     }
  
@@ -90,7 +90,7 @@ scenario "user can't create an account with too short password", {
         element.sendKeys("piikkikala");
         element = driver.findElement(By.name("password"));
         element.sendKeys("kala");
-        element = driver.findElement(By.name("passwordConfirmationssword"));
+        element = driver.findElement(By.name("passwordConfirmation"));
         element.sendKeys("kala");
         element = driver.findElement(By.name("add"));
         element.submit();
@@ -114,7 +114,7 @@ scenario "user can't create an account with a password without any numbers", {
         element.sendKeys("piikkikala");
         element = driver.findElement(By.name("password"));
         element.sendKeys("kalakalakala");
-        element = driver.findElement(By.name("passwordConfirmationssword"));
+        element = driver.findElement(By.name("passwordConfirmation"));
         element.sendKeys("kalakalakala");
         element = driver.findElement(By.name("add"));
         element.submit();
@@ -138,7 +138,7 @@ scenario "user can't create an account with a too short username", {
         element.sendKeys("ab");
         element = driver.findElement(By.name("password"));
         element.sendKeys("1kalakalakala");
-        element = driver.findElement(By.name("passwordConfirmationssword"));
+        element = driver.findElement(By.name("passwordConfirmation"));
         element.sendKeys("1kalakalakala");
         element = driver.findElement(By.name("add"));
         element.submit();
@@ -162,7 +162,7 @@ scenario "user can't create an account with a too long username", {
         element.sendKeys("piikkikalapiikkikala");
         element = driver.findElement(By.name("password"));
         element.sendKeys("1kalakalakala");
-        element = driver.findElement(By.name("passwordConfirmationssword"));
+        element = driver.findElement(By.name("passwordConfirmation"));
         element.sendKeys("1kalakalakala");
         element = driver.findElement(By.name("add"));
         element.submit();
